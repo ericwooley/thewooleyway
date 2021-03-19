@@ -1,14 +1,14 @@
-import { graphql } from 'gatsby';
-import React from 'react';
-import styled from '@emotion/styled';
-import { css } from '@emotion/react';
-import { FluidObject } from 'gatsby-image';
+import { graphql } from 'gatsby'
+import React from 'react'
+import styled from '@emotion/styled'
+import { css } from '@emotion/react'
+import { FluidObject } from 'gatsby-image'
 
-import { Footer } from '../components/Footer';
-import SiteNav from '../components/header/SiteNav';
-import { PostCard } from '../components/PostCard';
-import { Wrapper } from '../components/Wrapper';
-import IndexLayout from '../layouts';
+import { Footer } from '../components/Footer'
+import SiteNav from '../components/header/SiteNav'
+import { PostCard } from '../components/PostCard'
+import { Wrapper } from '../components/Wrapper'
+import IndexLayout from '../layouts'
 import {
   AuthorProfileImage,
   inner,
@@ -22,10 +22,10 @@ import {
   SiteNavMain,
   ResponsiveHeaderBackground,
   SiteHeaderBackground,
-} from '../styles/shared';
-import { PageContext } from './post';
-import { Helmet } from 'react-helmet';
-import config from '../website-config';
+} from '../styles/shared'
+import { PageContext } from './post'
+import { Helmet } from 'react-helmet'
+import config from '../website-config'
 
 interface AuthorTemplateProps {
   location: Location;
@@ -63,23 +63,23 @@ interface AuthorTemplateProps {
 }
 
 const Author = ({ data, location }: AuthorTemplateProps) => {
-  const author = data.authorYaml;
+  const author = data.authorYaml
 
   const edges = data.allMarkdownRemark.edges.filter(edge => {
-    const isDraft = edge.node.frontmatter.draft !== true || process.env.NODE_ENV === 'development';
+    const isDraft = edge.node.frontmatter.draft !== true || process.env.NODE_ENV === 'development'
 
-    let authorParticipated = false;
+    let authorParticipated = false
     if (edge.node.frontmatter.author) {
       edge.node.frontmatter.author.forEach(element => {
         if (element.id === author.id) {
-          authorParticipated = true;
+          authorParticipated = true
         }
-      });
+      })
     }
 
-    return isDraft && authorParticipated;
-  });
-  const totalCount = edges.length;
+    return isDraft && authorParticipated
+  })
+  const totalCount = edges.length
 
   return (
     <IndexLayout>
@@ -189,7 +189,7 @@ const Author = ({ data, location }: AuthorTemplateProps) => {
           <div css={inner}>
             <div css={[PostFeed]}>
               {edges.map(({ node }) => {
-                return <PostCard key={node.fields.slug} post={node} />;
+                return <PostCard key={node.fields.slug} post={node} />
               })}
             </div>
           </div>
@@ -197,8 +197,8 @@ const Author = ({ data, location }: AuthorTemplateProps) => {
         <Footer />
       </Wrapper>
     </IndexLayout>
-  );
-};
+  )
+}
 
 export const pageQuery = graphql`
   query($author: String) {
@@ -268,13 +268,13 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
 
 const HiddenMobile = css`
   @media (max-width: 500px) {
     display: none;
   }
-`;
+`
 
 const AuthorHeader = css`
   display: flex;
@@ -290,7 +290,7 @@ const AuthorHeader = css`
     /* no image */
     padding-bottom: 10px;
   }
-`;
+`
 
 const AuthorMeta = css`
   z-index: 10;
@@ -325,13 +325,13 @@ const AuthorMeta = css`
       display: none;
     }
   }
-`;
+`
 
 const AuthorSocialLink = styled.span`
   display: inline-block;
   margin: 0;
   padding: 6px 0;
-`;
+`
 
 const AuthorBio = styled.h2`
   z-index: 10;
@@ -342,7 +342,7 @@ const AuthorBio = styled.h2`
   line-height: 1.3em;
   font-weight: 400;
   opacity: 0.8;
-`;
+`
 
 const AuthHeaderContent = styled.div`
   display: flex;
@@ -353,7 +353,7 @@ const AuthHeaderContent = styled.div`
     align-items: center;
     margin: 16px 0 0 0;
   }
-`;
+`
 
 // .site-header-content .author-profile-image
 const AuthorProfileBioImage = css`
@@ -364,7 +364,7 @@ const AuthorProfileBioImage = css`
   height: 110px;
   box-shadow: rgba(255, 255, 255, 0.1) 0 0 0 6px;
   border-radius: 100%;
-`;
+`
 
 const AuthorSocialLinkAnchor = styled.a`
   color: #fff;
@@ -373,6 +373,6 @@ const AuthorSocialLinkAnchor = styled.a`
   :hover {
     opacity: 1;
   }
-`;
+`
 
-export default Author;
+export default Author

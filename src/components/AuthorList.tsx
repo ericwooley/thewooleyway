@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
 
-import { Author } from '../templates/post';
-import { AuthorListItem } from './AuthorListItem';
+import { Author } from '../templates/post'
+import { AuthorListItem } from './AuthorListItem'
 
 interface AuthorListProps {
   tooltip: 'small' | 'large';
@@ -16,7 +16,7 @@ export const AuthorList: React.FC<AuthorListProps> = props => (
       <AuthorListItem key={author.id} author={author} tooltip={props.tooltip} />
     ))}
   </AuthorListUl>
-);
+)
 
 export const AuthorListUl = styled.ul`
   display: flex;
@@ -24,4 +24,4 @@ export const AuthorListUl = styled.ul`
   margin: 0 0 0 4px;
   padding: 0;
   list-style: none;
-`;
+`

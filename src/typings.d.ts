@@ -1,15 +1,15 @@
-type CSSModule = Record<string, string>;
+type CSSModule = Record<string, string>
 
 // type shims for CSS modules
 
 declare module '*.module.scss' {
-  const cssModule: CSSModule;
-  export = cssModule;
+  const cssModule: CSSModule
+  export = cssModule
 }
 
 declare module '*.module.css' {
-  const cssModule: CSSModule;
-  export = cssModule;
+  const cssModule: CSSModule
+  export = cssModule
 }
 
 declare module 'rehype-react' {
@@ -18,8 +18,8 @@ declare module 'rehype-react' {
     components: any;
   }
   class RehypeReact {
-    Compiler: any;
+    Compiler: any
     constructor(options: RehypeOptions);
   }
-  export default RehypeReact;
+  export default RehypeReact
 }

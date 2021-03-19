@@ -1,21 +1,21 @@
-import { lighten } from 'polished';
+import { lighten } from 'polished'
 
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
+import { css } from '@emotion/react'
+import styled from '@emotion/styled'
 
-import { colors } from './colors';
+import { colors } from './colors'
 
 export const outer = css`
   position: relative;
   padding: 0 5vw;
-`;
+`
 
 // Centered content container blocks
 export const inner = css`
   margin: 0 auto;
   max-width: 1040px;
   width: 100%;
-`;
+`
 
 export const SiteNavMain = css`
   position: fixed;
@@ -25,7 +25,7 @@ export const SiteNavMain = css`
   z-index: 1000;
   /* background: color(var(--darkgrey) l(-5%)); */
   background: ${lighten('-0.05', colors.darkgrey)};
-`;
+`
 
 export const SiteMain = css`
   flex-grow: 1;
@@ -33,7 +33,7 @@ export const SiteMain = css`
   @media (prefers-color-scheme: dark) {
     background: ${colors.darkmode};
   }
-`;
+`
 
 export const SiteTitle = styled.h1`
   z-index: 10;
@@ -46,7 +46,7 @@ export const SiteTitle = styled.h1`
   @media (max-width: 500px) {
     font-size: 4.2rem;
   }
-`;
+`
 
 export const SiteDescription = styled.h2`
   z-index: 10;
@@ -60,11 +60,11 @@ export const SiteDescription = styled.h2`
   @media (max-width: 500px) {
     font-size: 1.8rem;
   }
-`;
+`
 
 export const Posts = css`
   overflow-x: hidden;
-`;
+`
 
 export const PostFeed = css`
   position: relative;
@@ -82,7 +82,7 @@ export const PostFeed = css`
   @media (prefers-color-scheme: dark) {
     background: ${colors.darkmode};
   }
-`;
+`
 
 export const SocialLink = css`
   display: inline-block;
@@ -98,15 +98,15 @@ export const SocialLink = css`
     height: 1.8rem;
     fill: #fff;
   }
-`;
+`
 
 export const SocialLinkFb = css`
   svg {
     height: 1.6rem;
   }
-`;
+`
 
-export const SiteHeader = css``;
+export const SiteHeader = css``
 
 export const SiteHeaderContent = styled.div`
   z-index: 100;
@@ -117,7 +117,7 @@ export const SiteHeaderContent = styled.div`
   padding: 6vw 3vw;
   min-height: 200px;
   max-height: 340px;
-`;
+`
 
 export const SiteHeaderStyles = css`
   position: relative;
@@ -157,7 +157,7 @@ export const SiteHeaderStyles = css`
       background: rgba(0, 0, 0, 0.6);
     }
   }
-`;
+`
 
 export const AuthorProfileImage = css`
   flex: 0 0 60px;
@@ -170,7 +170,7 @@ export const AuthorProfileImage = css`
     box-shadow: 0 0 0 6px hsla(0, 0%, 100%, 0.04);
     background: ${colors.darkmode};
   }
-`;
+`
 
 // tag and author post lists
 export const SiteArchiveHeader = css`
@@ -181,11 +181,11 @@ export const SiteArchiveHeader = css`
     min-height: 200px;
     max-height: 600px;
   }
-`;
+`
 
 export const SiteHeaderBackground = css`
   margin-top: 64px;
-`;
+`
 
 export const ResponsiveHeaderBackground = styled.div<{ backgroundImage?: string }>`
   ${p =>
@@ -325,7 +325,7 @@ export const ResponsiveHeaderBackground = styled.div<{ backgroundImage?: string 
     }
   }
   `}
-`;
+`
 
 export const NoImage = css`
   .no-image {
@@ -410,4 +410,4 @@ export const NoImage = css`
       color: rgba(255, 255, 255, 0.75);
     }
   }
-`;
+`

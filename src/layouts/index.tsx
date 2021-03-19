@@ -1,21 +1,39 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import { Global, css } from '@emotion/react';
-import { lighten } from 'polished';
+import React from 'react'
+import { Helmet } from 'react-helmet'
+import { Global, css } from '@emotion/react'
+import { lighten } from 'polished'
 
-// eslint-disable-next-line @typescript-eslint/prefer-ts-expect-error
+/* eslint-disable @typescript-eslint/prefer-ts-expect-error */
 // @ts-ignore
-import favicon from '../../src/favicon.ico';
-import { colors } from '../styles/colors';
+import favicon from '../../src/favicon.ico'
+// @ts-ignore
+import appTouchFavicon from '../../src/apple-touch-icon.png'
+// @ts-ignore
+import favicon32 from '../../src/favicon-32x32.png'
+// @ts-ignore
+import favicon16 from '../../src/favicon-16x16.png'
+// @ts-ignore
+import webmanifest from '!file-loader!../../src/site.webmanifest'
+// @ts-ignore
+import safariPinnedSvg from '!file-loader!../../src/safari-pinned-tab.svg'
+
+import { colors } from '../styles/colors'
 
 interface IndexProps {
-  className?: string;
+  className?: string
 }
 
 const IndexLayout: React.FC<IndexProps> = props => {
   return (
     <div className={props.className}>
       <Helmet>
+        <link rel="apple-touch-icon" sizes="180x180" href={appTouchFavicon} />
+        <link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
+        <link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
+        <link rel="manifest" href={webmanifest} />
+        <link rel="mask-icon" href={safariPinnedSvg} color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
         <link rel="icon" href={favicon} type="image/x-icon" />
       </Helmet>
       <Global
@@ -496,7 +514,7 @@ const IndexLayout: React.FC<IndexProps> = props => {
       />
       {props.children}
     </div>
-  );
-};
+  )
+}
 
-export default IndexLayout;
+export default IndexLayout

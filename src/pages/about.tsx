@@ -1,13 +1,13 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+import React from 'react'
+import { Helmet } from 'react-helmet'
 
-import { css } from '@emotion/react';
+import { css } from '@emotion/react'
 
-import { Footer } from '../components/Footer';
-import SiteNav from '../components/header/SiteNav';
-import { PostFullContent } from '../components/PostContent';
-import { Wrapper } from '../components/Wrapper';
-import IndexLayout from '../layouts';
+import { Footer } from '../components/Footer'
+import SiteNav from '../components/header/SiteNav'
+import { PostFullContent } from '../components/PostContent'
+import { Wrapper } from '../components/Wrapper'
+import IndexLayout from '../layouts'
 import {
   inner,
   outer,
@@ -15,9 +15,9 @@ import {
   SiteHeader,
   SiteMain,
   SiteNavMain,
-} from '../styles/shared';
-import { NoImage, PostFull, PostFullHeader, PostFullTitle } from '../templates/post';
-import { colors } from '../styles/colors';
+} from '../styles/shared'
+import { NoImage, PostFull, PostFullHeader, PostFullTitle } from '../templates/post'
+import { colors } from '../styles/colors'
 
 const PageTemplate = css`
   .site-main {
@@ -32,7 +32,7 @@ const PageTemplate = css`
       background: ${colors.darkmode};
     }
   }
-`;
+`
 
 const About: React.FC = () => (
   <IndexLayout>
@@ -57,7 +57,8 @@ const About: React.FC = () => (
             <PostFullContent className="post-full-content">
               <div className="post-content">
                 <h5>
-                  A starter template for Gatsby <br /> GitHub: <a href="https://github.com/scttcper/gatsby-casper">scttcper/gatsby-casper</a>
+                  A starter template for Gatsby <br /> GitHub:{' '}
+                  <a href="https://github.com/scttcper/gatsby-casper">scttcper/gatsby-casper</a>
                 </h5>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc commodo finibus leo,
@@ -102,6 +103,6 @@ const About: React.FC = () => (
       <Footer />
     </Wrapper>
   </IndexLayout>
-);
+)
 
-export default About;
+export default About

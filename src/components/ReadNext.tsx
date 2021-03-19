@@ -1,13 +1,13 @@
-import { lighten } from 'polished';
-import React from 'react';
+import { lighten } from 'polished'
+import React from 'react'
 
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
 
-import { colors } from '../styles/colors';
-import { inner, outer } from '../styles/shared';
-import { PageContext } from '../templates/post';
-import { PostCard } from './PostCard';
-import { ReadNextCard } from './ReadNextCard';
+import { colors } from '../styles/colors'
+import { inner, outer } from '../styles/shared'
+import { PageContext } from '../templates/post'
+import { PostCard } from './PostCard'
+import { ReadNextCard } from './ReadNextCard'
 
 interface ReadNextProps {
   tags: string[];
@@ -34,7 +34,7 @@ interface ReadNextProps {
 }
 
 export const ReadNext = ({ relatedPosts, currentPageSlug, tags, pageContext }: ReadNextProps) => {
-  const showRelatedPosts = relatedPosts.totalCount > 1;
+  const showRelatedPosts = relatedPosts.totalCount > 1
 
   return (
     <ReadNextAside className="read-next" css={outer}>
@@ -53,8 +53,8 @@ export const ReadNext = ({ relatedPosts, currentPageSlug, tags, pageContext }: R
         </ReadNextFeed>
       </div>
     </ReadNextAside>
-  );
-};
+  )
+}
 
 const ReadNextAside = styled.aside`
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -107,11 +107,11 @@ const ReadNextAside = styled.aside`
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
   }
-`;
+`
 
 const ReadNextFeed = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: 0 -25px;
   padding: 60px 0 0 0;
-`;
+`

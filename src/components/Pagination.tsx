@@ -1,9 +1,9 @@
-import { Link } from 'gatsby';
-import React from 'react';
-import { darken } from 'polished';
-import { css } from '@emotion/react';
+import { Link } from 'gatsby'
+import React from 'react'
+import { darken } from 'polished'
+import { css } from '@emotion/react'
 
-import { colors } from '../styles/colors';
+import { colors } from '../styles/colors'
 
 export interface PaginationProps {
   currentPage: number;
@@ -11,10 +11,10 @@ export interface PaginationProps {
 }
 
 const Pagination: React.FunctionComponent<PaginationProps> = ({ currentPage, numPages }) => {
-  const isFirst = currentPage === 1;
-  const isLast = currentPage === numPages;
-  const prevPage = currentPage - 1 === 1 ? '/' : (currentPage - 1).toString();
-  const nextPage = (currentPage + 1).toString();
+  const isFirst = currentPage === 1
+  const isLast = currentPage === numPages
+  const prevPage = currentPage - 1 === 1 ? '/' : (currentPage - 1).toString()
+  const nextPage = (currentPage + 1).toString()
 
   return (
     <nav css={navCss}>
@@ -40,8 +40,8 @@ const Pagination: React.FunctionComponent<PaginationProps> = ({ currentPage, num
         )}
       </div>
     </nav>
-  );
-};
+  )
+}
 
 const navCss = css`
   text-align: center;
@@ -78,6 +78,6 @@ const navCss = css`
       text-decoration: none;
     }
   }
-`;
+`
 
-export default Pagination;
+export default Pagination

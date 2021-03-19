@@ -1,15 +1,15 @@
-import { Link } from 'gatsby';
-import Img from 'gatsby-image';
-import * as _ from 'lodash';
-import { lighten } from 'polished';
-import React, { useState } from 'react';
+import { Link } from 'gatsby'
+import Img from 'gatsby-image'
+import * as _ from 'lodash'
+import { lighten } from 'polished'
+import React, { useState } from 'react'
 
-import { css } from '@emotion/react';
+import { css } from '@emotion/react'
 
-import { colors } from '../styles/colors';
-import { Author } from '../templates/post';
-import { AuthorProfileImage } from './PostCard';
-import styled from '@emotion/styled';
+import { colors } from '../styles/colors'
+import { Author } from '../templates/post'
+import { AuthorProfileImage } from './PostCard'
+import styled from '@emotion/styled'
 
 interface AuthorListItemProps {
   tooltip: 'small' | 'large';
@@ -17,32 +17,32 @@ interface AuthorListItemProps {
 }
 
 export const AuthorListItem: React.FC<AuthorListItemProps> = props => {
-  const [hovered, setHover] = useState(false);
-  let timeout: ReturnType<typeof setTimeout>;
+  const [hovered, setHover] = useState(false)
+  let timeout: ReturnType<typeof setTimeout>
   function handleMouseEnter() {
     if (props.tooltip !== 'large') {
-      return;
+      return
     }
 
-    clearTimeout(timeout);
-    setHover(true);
+    clearTimeout(timeout)
+    setHover(true)
   }
 
   function handleMouseLeave() {
-    clearTimeout(timeout);
+    clearTimeout(timeout)
     timeout = setTimeout(() => {
-      setHover(false);
-    }, 600);
+      setHover(false)
+    }, 600)
   }
 
   return (
     <AuthorListItemLi
       className="author-list-item"
       onMouseEnter={() => {
-        handleMouseEnter();
+        handleMouseEnter()
       }}
       onMouseLeave={() => {
-        handleMouseLeave();
+        handleMouseLeave()
       }}
     >
       {props.tooltip === 'small' && (
@@ -84,14 +84,14 @@ export const AuthorListItem: React.FC<AuthorListItemProps> = props => {
         />
       </Link>
     </AuthorListItemLi>
-  );
-};
+  )
+}
 
 const Hovered = css`
   opacity: 1;
   transform: scale(1) translateY(0px);
   pointer-events: auto;
-`;
+`
 
 const AuthorListItemLi = styled.li`
   position: relative;
@@ -103,7 +103,7 @@ const AuthorListItemLi = styled.li`
     opacity: 1;
     transform: translateY(0px);
   }
-`;
+`
 
 const AuthorNameTooltip = styled.div`
   position: absolute;
@@ -127,7 +127,7 @@ const AuthorNameTooltip = styled.div`
   @media (max-width: 700px) {
     display: none;
   }
-`;
+`
 
 const AuthorCardStyles = css`
   position: absolute;
@@ -217,7 +217,7 @@ const AuthorCardStyles = css`
       border-top-color: ${lighten('0.04', colors.darkmode)};
     }
   }
-`;
+`
 
 const AuthorAvatar = css`
   display: block;
@@ -238,4 +238,4 @@ const AuthorAvatar = css`
     /* border-color: color(var(--darkgrey) l(+2%)); */
     border-color: ${lighten('0.02', colors.darkgrey)};
   }
-`;
+`

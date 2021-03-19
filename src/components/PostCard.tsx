@@ -1,16 +1,16 @@
-import { format } from 'date-fns';
-import { Link } from 'gatsby';
-import Img from 'gatsby-image';
-import _ from 'lodash';
-import { lighten } from 'polished';
-import React from 'react';
+import { format } from 'date-fns'
+import { Link } from 'gatsby'
+import Img from 'gatsby-image'
+import _ from 'lodash'
+import { lighten } from 'polished'
+import React from 'react'
 
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
+import { css } from '@emotion/react'
+import styled from '@emotion/styled'
 
-import { colors } from '../styles/colors';
-import { PageContext } from '../templates/post';
-import { AuthorList } from './AuthorList';
+import { colors } from '../styles/colors'
+import { PageContext } from '../templates/post'
+import { AuthorList } from './AuthorList'
 
 export interface PostCardProps {
   post: PageContext;
@@ -18,11 +18,11 @@ export interface PostCardProps {
 }
 
 export const PostCard: React.FC<PostCardProps> = ({ post, large = false }) => {
-  const date = new Date(post.frontmatter.date);
+  const date = new Date(post.frontmatter.date)
   // 2018-08-20
-  const datetime = format(date, 'yyyy-MM-dd');
+  const datetime = format(date, 'yyyy-MM-dd')
   // 20 AUG 2018
-  const displayDatetime = format(date, 'dd LLL yyyy');
+  const displayDatetime = format(date, 'dd LLL yyyy')
 
   return (
     <article
@@ -68,7 +68,7 @@ export const PostCard: React.FC<PostCardProps> = ({ post, large = false }) => {
                     <Link to={`/author/${_.kebabCase(author.id)}/`}>{author.id}</Link>
                     {post.frontmatter.author.length - 1 > index && ', '}
                   </React.Fragment>
-                );
+                )
               })}
             </span>
             <span className="post-card-byline-date">
@@ -79,8 +79,8 @@ export const PostCard: React.FC<PostCardProps> = ({ post, large = false }) => {
         </PostCardMeta>
       </PostCardContent>
     </article>
-  );
-};
+  )
+}
 
 const PostCardStyles = css`
   position: relative;
@@ -92,7 +92,7 @@ const PostCardStyles = css`
   padding: 0 20px 40px;
   min-height: 220px;
   background-size: cover;
-`;
+`
 
 const PostCardLarge = css`
   @media (min-width: 795px) {
@@ -143,14 +143,14 @@ const PostCardLarge = css`
       line-height: 1.5em;
     }
   }
-`;
+`
 
 const PostCardImageLink = css`
   position: relative;
   display: block;
   overflow: hidden;
   border-radius: 5px 5px 0 0;
-`;
+`
 
 const PostCardImage = styled.div`
   width: auto;
@@ -161,13 +161,13 @@ const PostCardImage = styled.div`
   @media (prefers-color-scheme: dark) {
     background: ${colors.darkmode};
   }
-`;
+`
 
 const PostCardContent = styled.div`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-`;
+`
 
 const PostCardContentLink = css`
   position: relative;
@@ -178,7 +178,7 @@ const PostCardContentLink = css`
   :hover {
     text-decoration: none;
   }
-`;
+`
 
 const PostCardPrimaryTag = styled.div`
   margin: 0 0 0.2em;
@@ -188,7 +188,7 @@ const PostCardPrimaryTag = styled.div`
   font-weight: 500;
   letter-spacing: 0.2px;
   text-transform: uppercase;
-`;
+`
 
 const PostCardTitle = styled.h2`
   margin: 0 0 0.4em;
@@ -198,7 +198,7 @@ const PostCardTitle = styled.h2`
   @media (prefers-color-scheme: dark) {
     color: rgba(255, 255, 255, 0.85);
   }
-`;
+`
 
 const PostCardExcerpt = styled.section`
   font-family: Georgia, serif;
@@ -207,13 +207,13 @@ const PostCardExcerpt = styled.section`
     /* color: color(var(--midgrey) l(+10%)); */
     color: ${lighten('0.1', colors.midgrey)} !important;
   }
-`;
+`
 
 const PostCardMeta = styled.footer`
   display: flex;
   align-items: flex-start;
   padding: 0;
-`;
+`
 
 const PostCardBylineContent = styled.div`
   flex: 1 1 50%;
@@ -243,11 +243,11 @@ const PostCardBylineContent = styled.div`
       color: rgba(255, 255, 255, 0.75);
     }
   }
-`;
+`
 
 const PostCardHeader = styled.header`
   margin: 15px 0 0;
-`;
+`
 
 export const StaticAvatar = css`
   display: block;
@@ -262,7 +262,7 @@ export const StaticAvatar = css`
     /* border-color: color(var(--darkgrey) l(+2%)); */
     border-color: ${lighten('0.02', colors.darkgrey)};
   }
-`;
+`
 
 export const AuthorProfileImage = css`
   display: block;
@@ -276,4 +276,4 @@ export const AuthorProfileImage = css`
   @media (prefers-color-scheme: dark) {
     background: ${colors.darkmode};
   }
-`;
+`

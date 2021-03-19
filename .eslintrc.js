@@ -7,15 +7,18 @@ module.exports = {
   },
   extends: ['xo-space/esnext', 'xo-react/space', 'xo-typescript'],
   rules: {
-    'object-curly-spacing': ['error', 'always'],
     '@typescript-eslint/indent': ['error', 2, { SwitchCase: 1 }],
+    semi: 'off',
+    '@typescript-eslint/semi': ['error', 'never'],
     '@typescript-eslint/explicit-function-return-type': 'off',
     'capitalized-comments': 'off',
     'comma-dangle': ['error', 'always-multiline'],
     'react/jsx-tag-spacing': 'off',
     'react/prop-types': 'off',
+    '@typescript-eslint/object-curly-spacing': 'off',
+    '@typescript-eslint/member-delimiter-style': 'off',
     'no-warning-comments': 'off',
-    'complexity': 'off',
+    complexity: 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/no-unnecessary-condition': 'off',
     '@typescript-eslint/no-unsafe-call': 'off',
@@ -26,4 +29,4 @@ module.exports = {
     '@typescript-eslint/comma-dangle': 'off',
     '@typescript-eslint/no-confusing-void-expression': 'off',
   },
-};
+}

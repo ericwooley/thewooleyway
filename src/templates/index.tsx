@@ -1,16 +1,16 @@
-import { graphql } from 'gatsby';
-import { FixedObject } from 'gatsby-image';
-import React from 'react';
-import { Helmet } from 'react-helmet';
+import { graphql } from 'gatsby'
+import { FixedObject } from 'gatsby-image'
+import React from 'react'
+import { Helmet } from 'react-helmet'
 
-import { css } from '@emotion/react';
+import { css } from '@emotion/react'
 
-import { Footer } from '../components/Footer';
-import SiteNav from '../components/header/SiteNav';
-import Pagination from '../components/Pagination';
-import { PostCard } from '../components/PostCard';
-import { Wrapper } from '../components/Wrapper';
-import IndexLayout from '../layouts';
+import { Footer } from '../components/Footer'
+import SiteNav from '../components/header/SiteNav'
+import Pagination from '../components/Pagination'
+import { PostCard } from '../components/PostCard'
+import { Wrapper } from '../components/Wrapper'
+import IndexLayout from '../layouts'
 import {
   inner,
   outer,
@@ -22,36 +22,36 @@ import {
   SiteMain,
   SiteTitle,
   SiteHeaderStyles,
-} from '../styles/shared';
-import config from '../website-config';
-import { PageContext } from './post';
+} from '../styles/shared'
+import config from '../website-config'
+import { PageContext } from './post'
 
 export interface IndexProps {
   pageContext: {
-    currentPage: number;
-    numPages: number;
-  };
+    currentPage: number
+    numPages: number
+  }
   data: {
     logo: {
       childImageSharp: {
-        fixed: FixedObject;
-      };
-    };
+        fixed: FixedObject
+      }
+    }
     header: {
       childImageSharp: {
-        fixed: FixedObject;
-      };
-    };
+        fixed: FixedObject
+      }
+    }
     allMarkdownRemark: {
       edges: Array<{
-        node: PageContext;
-      }>;
-    };
-  };
+        node: PageContext
+      }>
+    }
+  }
 }
 
 const IndexPage: React.FC<IndexProps> = props => {
-  const { width, height } = props.data.header.childImageSharp.fixed;
+  const { width, height } = props.data.header.childImageSharp.fixed
 
   return (
     <IndexLayout css={HomePosts}>
@@ -103,7 +103,7 @@ const IndexPage: React.FC<IndexProps> = props => {
               <SiteTitle className="site-title">
                 {props.data.logo ? (
                   <img
-                    style={{ maxHeight: '55px' }}
+                    style={{ maxHeight: '95px' }}
                     src={props.data.logo.childImageSharp.fixed.src}
                     alt={config.title}
                   />
@@ -125,7 +125,7 @@ const IndexPage: React.FC<IndexProps> = props => {
                     process.env.NODE_ENV !== 'production') && (
                     <PostCard key={post.node.fields.slug} post={post.node} large={index === 0} />
                   )
-                );
+                )
               })}
             </div>
           </div>
@@ -140,12 +140,12 @@ const IndexPage: React.FC<IndexProps> = props => {
         <Footer />
       </Wrapper>
     </IndexLayout>
-  );
-};
+  )
+}
 
 export const pageQuery = graphql`
   query blogPageQuery($skip: Int!, $limit: Int!) {
-    logo: file(relativePath: { eq: "img/ghost-logo.png" }) {
+    logo: file(relativePath: { eq: "img/logo-white.png" }) {
       childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
@@ -208,7 +208,7 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
 
 const HomePosts = css`
   @media (min-width: 795px) {
@@ -266,6 +266,6 @@ const HomePosts = css`
       line-height: 1.5em;
     }
   }
-`;
+`
 
-export default IndexPage;
+export default IndexPage

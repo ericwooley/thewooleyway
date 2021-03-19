@@ -1,12 +1,12 @@
-import { graphql } from 'gatsby';
-import React from 'react';
-import { FluidObject } from 'gatsby-image';
+import { graphql } from 'gatsby'
+import React from 'react'
+import { FluidObject } from 'gatsby-image'
 
-import { Footer } from '../components/Footer';
-import SiteNav from '../components/header/SiteNav';
-import { PostCard } from '../components/PostCard';
-import { Wrapper } from '../components/Wrapper';
-import IndexLayout from '../layouts';
+import { Footer } from '../components/Footer'
+import SiteNav from '../components/header/SiteNav'
+import { PostCard } from '../components/PostCard'
+import { Wrapper } from '../components/Wrapper'
+import IndexLayout from '../layouts'
 import {
   inner,
   outer,
@@ -20,10 +20,10 @@ import {
   SiteArchiveHeader,
   ResponsiveHeaderBackground,
   SiteHeaderBackground,
-} from '../styles/shared';
-import { PageContext } from './post';
-import { Helmet } from 'react-helmet';
-import config from '../website-config';
+} from '../styles/shared'
+import { PageContext } from './post'
+import { Helmet } from 'react-helmet'
+import config from '../website-config'
 
 interface TagTemplateProps {
   location: Location;
@@ -54,11 +54,11 @@ interface TagTemplateProps {
 }
 
 const Tags = ({ pageContext, data, location }: TagTemplateProps) => {
-  const tag = pageContext.tag ? pageContext.tag : '';
-  const { edges, totalCount } = data.allMarkdownRemark;
+  const tag = pageContext.tag ? pageContext.tag : ''
+  const { edges, totalCount } = data.allMarkdownRemark
   const tagData = data.allTagYaml.edges.find(
     n => n.node.id.toLowerCase() === tag.toLowerCase(),
-  );
+  )
 
   return (
     <IndexLayout>
@@ -126,10 +126,10 @@ const Tags = ({ pageContext, data, location }: TagTemplateProps) => {
         <Footer />
       </Wrapper>
     </IndexLayout>
-  );
-};
+  )
+}
 
-export default Tags;
+export default Tags
 
 export const pageQuery = graphql`
   query($tag: String) {
@@ -192,4 +192,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

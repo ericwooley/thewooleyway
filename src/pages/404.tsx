@@ -1,30 +1,30 @@
-import { graphql, Link } from 'gatsby';
-import React from 'react';
+import { graphql, Link } from 'gatsby'
+import React from 'react'
 
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
+import { css } from '@emotion/react'
+import styled from '@emotion/styled'
 
-import SiteNav from '../components/header/SiteNav';
-import { PostCard } from '../components/PostCard';
-import { Wrapper } from '../components/Wrapper';
-import IndexLayout from '../layouts';
-import { colors } from '../styles/colors';
-import { inner, outer, PostFeed, SiteHeader, SiteNavMain } from '../styles/shared';
-import { PageContext } from '../templates/post';
+import SiteNav from '../components/header/SiteNav'
+import { PostCard } from '../components/PostCard'
+import { Wrapper } from '../components/Wrapper'
+import IndexLayout from '../layouts'
+import { colors } from '../styles/colors'
+import { inner, outer, PostFeed, SiteHeader, SiteNavMain } from '../styles/shared'
+import { PageContext } from '../templates/post'
 
 interface NotFoundTemplateProps {
   data: {
     allMarkdownRemark: {
-      totalCount: number;
+      totalCount: number
       edges: Array<{
-        node: PageContext;
-      }>;
-    };
-  };
+        node: PageContext
+      }>
+    }
+  }
 }
 
 const NotFoundPage: React.FC<NotFoundTemplateProps> = props => {
-  const { edges } = props.data.allMarkdownRemark;
+  const { edges } = props.data.allMarkdownRemark
 
   return (
     <IndexLayout>
@@ -55,8 +55,8 @@ const NotFoundPage: React.FC<NotFoundTemplateProps> = props => {
         </main>
       </Wrapper>
     </IndexLayout>
-  );
-};
+  )
+}
 
 export const pageQuery = graphql`
   query {
@@ -98,7 +98,7 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
 
 const ErrorContent = css`
   padding: 14vw 4vw 6vw;
@@ -118,7 +118,7 @@ const ErrorContent = css`
       border-bottom: none;
     }
   }
-`;
+`
 
 const ErrorCode = styled.h1`
   margin: 0;
@@ -132,7 +132,7 @@ const ErrorCode = styled.h1`
   @media (max-width: 800px) {
     font-size: 11.2rem;
   }
-`;
+`
 
 const ErrorDescription = styled.p`
   margin: 0;
@@ -146,11 +146,11 @@ const ErrorDescription = styled.p`
     margin: 5px 0 0 0;
     font-size: 1.8rem;
   }
-`;
+`
 
 const ErrorLink = css`
   display: inline-block;
   margin-top: 5px;
-`;
+`
 
-export default NotFoundPage;
+export default NotFoundPage

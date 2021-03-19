@@ -1,25 +1,25 @@
-import { format } from 'date-fns';
-import { graphql, Link } from 'gatsby';
-import Img, { FluidObject } from 'gatsby-image';
-import * as _ from 'lodash';
-import { lighten, setLightness } from 'polished';
-import React from 'react';
-import { Helmet } from 'react-helmet';
+import { format } from 'date-fns'
+import { graphql, Link } from 'gatsby'
+import Img, { FluidObject } from 'gatsby-image'
+import * as _ from 'lodash'
+import { lighten, setLightness } from 'polished'
+import React from 'react'
+import { Helmet } from 'react-helmet'
 
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
+import { css } from '@emotion/react'
+import styled from '@emotion/styled'
 
-import { Footer } from '../components/Footer';
-import SiteNav, { SiteNavMain } from '../components/header/SiteNav';
-import PostContent from '../components/PostContent';
-import { ReadNext } from '../components/ReadNext';
-import { Subscribe } from '../components/subscribe/Subscribe';
-import { Wrapper } from '../components/Wrapper';
-import IndexLayout from '../layouts';
-import { colors } from '../styles/colors';
-import { inner, outer, SiteMain } from '../styles/shared';
-import config from '../website-config';
-import { AuthorList } from '../components/AuthorList';
+import { Footer } from '../components/Footer'
+import SiteNav, { SiteNavMain } from '../components/header/SiteNav'
+import PostContent from '../components/PostContent'
+import { ReadNext } from '../components/ReadNext'
+import { Subscribe } from '../components/subscribe/Subscribe'
+import { Wrapper } from '../components/Wrapper'
+import IndexLayout from '../layouts'
+import { colors } from '../styles/colors'
+import { inner, outer, SiteMain } from '../styles/shared'
+import config from '../website-config'
+import { AuthorList } from '../components/AuthorList'
 
 export interface Author {
   id: string;
@@ -102,19 +102,19 @@ export interface PageContext {
 }
 
 const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
-  const post = data.markdownRemark;
-  let width = '';
-  let height = '';
+  const post = data.markdownRemark
+  let width = ''
+  let height = ''
   if (post.frontmatter.image?.childImageSharp) {
-    width = post.frontmatter.image.childImageSharp.fluid.sizes.split(', ')[1].split('px')[0];
-    height = String(Number(width) / post.frontmatter.image.childImageSharp.fluid.aspectRatio);
+    width = post.frontmatter.image.childImageSharp.fluid.sizes.split(', ')[1].split('px')[0]
+    height = String(Number(width) / post.frontmatter.image.childImageSharp.fluid.aspectRatio)
   }
 
-  const date = new Date(post.frontmatter.date);
+  const date = new Date(post.frontmatter.date)
   // 2018-08-20
-  const datetime = format(date, 'yyyy-MM-dd');
+  const datetime = format(date, 'yyyy-MM-dd')
   // 20 AUG 2018
-  const displayDatetime = format(date, 'dd LLL yyyy');
+  const displayDatetime = format(date, 'dd LLL yyyy')
 
   return (
     <IndexLayout className="post-template">
@@ -247,8 +247,8 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
         <Footer />
       </Wrapper>
     </IndexLayout>
-  );
-};
+  )
+}
 
 const PostTemplate = css`
   .site-main {
@@ -263,12 +263,12 @@ const PostTemplate = css`
       background: ${colors.darkmode};
     }
   }
-`;
+`
 
 export const PostFull = css`
   position: relative;
   z-index: 50;
-`;
+`
 
 export const NoImage = css`
   .post-full-content {
@@ -279,7 +279,7 @@ export const NoImage = css`
   .post-full-content:after {
     display: none;
   }
-`;
+`
 
 export const PostFullHeader = styled.header`
   position: relative;
@@ -300,7 +300,7 @@ export const PostFullHeader = styled.header`
   @media (max-width: 500px) {
     padding: 20px 0 35px;
   }
-`;
+`
 
 const PostFullTags = styled.section`
   display: flex;
@@ -312,7 +312,7 @@ const PostFullTags = styled.section`
   line-height: 1.4em;
   font-weight: 600;
   text-transform: uppercase;
-`;
+`
 
 const PostFullCustomExcerpt = styled.p`
   margin: 20px 0 0;
@@ -331,7 +331,7 @@ const PostFullCustomExcerpt = styled.p`
     /* color: color(var(--midgrey) l(+10%)); */
     color: ${lighten('0.1', colors.midgrey)};
   }
-`;
+`
 
 const PostFullByline = styled.div`
   display: flex;
@@ -397,7 +397,7 @@ const PostFullByline = styled.div`
       color: #fff;
     }
   }
-`;
+`
 
 export const PostFullTitle = styled.h1`
   margin: 0 0 0.2em;
@@ -410,7 +410,7 @@ export const PostFullTitle = styled.h1`
   @media (prefers-color-scheme: dark) {
     color: rgba(255, 255, 255, 0.9);
   }
-`;
+`
 
 const PostFullImage = styled.figure`
   margin: 25px 0 50px;
@@ -434,7 +434,7 @@ const PostFullImage = styled.figure`
     margin-bottom: 4vw;
     height: 350px;
   }
-`;
+`
 
 export const query = graphql`
   query($slug: String, $primaryTag: String) {
@@ -500,6 +500,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default PageTemplate;
+export default PageTemplate

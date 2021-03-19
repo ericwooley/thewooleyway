@@ -1,10 +1,10 @@
-import { graphql, StaticQuery } from 'gatsby';
-import { FixedObject } from 'gatsby-image';
-import React from 'react';
+import { graphql, StaticQuery } from 'gatsby'
+import { FixedObject } from 'gatsby-image'
+import React from 'react'
 
-import { css } from '@emotion/react';
+import { css } from '@emotion/react'
 
-import config from '../../website-config';
+import config from '../../website-config'
 
 interface SiteNavLogoProps {
   logo?: {
@@ -31,7 +31,7 @@ const SubscribeLogo = () => (
     `}
     render={(data: SiteNavLogoProps) => {
       if (!data.logo) {
-        return;
+        return
       }
 
       return (
@@ -41,16 +41,16 @@ const SubscribeLogo = () => (
           src={data.logo.childImageSharp.fixed.src}
           alt={config.title}
         />
-      );
+      )
     }}
   />
-);
+)
 
 const SubscribeOverlayLogo = css`
   position: fixed;
   top: 23px;
   left: 30px;
   height: 30px;
-`;
+`
 
-export default SubscribeLogo;
+export default SubscribeLogo

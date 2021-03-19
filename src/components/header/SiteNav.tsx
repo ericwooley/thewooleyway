@@ -1,17 +1,17 @@
-import { Link } from 'gatsby';
-import { darken } from 'polished';
-import React from 'react';
+import { Link } from 'gatsby'
+import { darken } from 'polished'
+import React from 'react'
 
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
+import { css } from '@emotion/react'
+import styled from '@emotion/styled'
 
-import { colors } from '../../styles/colors';
-import { SocialLink, SocialLinkFb } from '../../styles/shared';
-import config from '../../website-config';
-import { Facebook } from '../icons/facebook';
-import { Twitter } from '../icons/twitter';
-import { SubscribeModal } from '../subscribe/SubscribeModal';
-import { SiteNavLogo } from './SiteNavLogo';
+import { colors } from '../../styles/colors'
+import { SocialLink, SocialLinkFb } from '../../styles/shared'
+import config from '../../website-config'
+import { Facebook } from '../icons/facebook'
+import { Twitter } from '../icons/twitter'
+import { SubscribeModal } from '../subscribe/SubscribeModal'
+import { SiteNavLogo } from './SiteNavLogo'
 
 interface SiteNavProps {
   isHome?: boolean;
@@ -24,63 +24,63 @@ interface SiteNavState {
 }
 
 class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
-  subscribe = React.createRef<SubscribeModal>();
-  titleRef = React.createRef<HTMLSpanElement>();
-  lastScrollY = 0;
-  ticking = false;
-  state = { showTitle: false };
+  subscribe = React.createRef<SubscribeModal>()
+  titleRef = React.createRef<HTMLSpanElement>()
+  lastScrollY = 0
+  ticking = false
+  state = { showTitle: false }
 
   openModal = () => {
     if (this.subscribe.current) {
-      this.subscribe.current.open();
+      this.subscribe.current.open()
     }
-  };
+  }
 
   componentDidMount(): void {
-    this.lastScrollY = window.scrollY;
+    this.lastScrollY = window.scrollY
     if (this.props.isPost) {
-      window.addEventListener('scroll', this.onScroll, { passive: true });
+      window.addEventListener('scroll', this.onScroll, { passive: true })
     }
   }
 
   componentWillUnmount(): void {
-    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('scroll', this.onScroll)
   }
 
   onScroll = () => {
     if (!this.titleRef || !this.titleRef.current) {
-      return;
+      return
     }
 
     if (!this.ticking) {
-      requestAnimationFrame(this.update);
+      requestAnimationFrame(this.update)
     }
 
-    this.ticking = true;
-  };
+    this.ticking = true
+  }
 
   update = () => {
     if (!this.titleRef || !this.titleRef.current) {
-      return;
+      return
     }
 
-    this.lastScrollY = window.scrollY;
+    this.lastScrollY = window.scrollY
 
-    const trigger = this.titleRef.current.getBoundingClientRect().top;
-    const triggerOffset = this.titleRef.current.offsetHeight + 35;
+    const trigger = this.titleRef.current.getBoundingClientRect().top
+    const triggerOffset = this.titleRef.current.offsetHeight + 35
 
     // show/hide post title
     if (this.lastScrollY >= trigger + triggerOffset) {
-      this.setState({ showTitle: true });
+      this.setState({ showTitle: true })
     } else {
-      this.setState({ showTitle: false });
+      this.setState({ showTitle: false })
     }
 
-    this.ticking = false;
-  };
+    this.ticking = false
+  }
 
   render() {
-    const { isHome = false, isPost = false, post = {} } = this.props;
+    const { isHome = false, isPost = false, post = {} } = this.props
     return (
       <>
         {config.showSubscribe && <SubscribeModal ref={this.subscribe} />}
@@ -139,7 +139,7 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
           </SiteNavRight>
         </nav>
       </>
-    );
+    )
   }
 }
 
@@ -156,7 +156,7 @@ export const SiteNavMain = css`
     padding-right: 0;
     padding-left: 0;
   }
-`;
+`
 
 const SiteNavStyles = css`
   position: relative;
@@ -167,7 +167,7 @@ const SiteNavStyles = css`
   overflow-y: hidden;
   height: 64px;
   font-size: 1.3rem;
-`;
+`
 
 const SiteNavLeft = styled.div`
   flex: 1 0 auto;
@@ -189,12 +189,12 @@ const SiteNavLeft = styled.div`
     margin-right: 0;
     padding-left: 5vw;
   }
-`;
+`
 
 const SiteNavContent = styled.div`
   position: relative;
   align-self: flex-start;
-`;
+`
 
 const NavStyles = css`
   position: absolute;
@@ -241,7 +241,7 @@ const NavStyles = css`
     right: 12px;
     opacity: 0.5;
   }
-`;
+`
 
 const SiteNavRight = styled.div`
   flex: 0 1 auto;
@@ -254,13 +254,13 @@ const SiteNavRight = styled.div`
   @media (max-width: 700px) {
     display: none;
   }
-`;
+`
 
 const SocialLinks = styled.div`
   flex-shrink: 0;
   display: flex;
   align-items: center;
-`;
+`
 
 const SubscribeButton = styled.a`
   display: block;
@@ -277,7 +277,7 @@ const SubscribeButton = styled.a`
     opacity: 1;
     cursor: pointer;
   }
-`;
+`
 
 const NavPostTitle = styled.span`
   visibility: hidden;
@@ -299,7 +299,7 @@ const NavPostTitle = styled.span`
     content: '– ';
     opacity: 0.5;
   }
-`;
+`
 
 const HideNav = css`
   ul {
@@ -312,6 +312,6 @@ const HideNav = css`
     opacity: 1;
     transform: translateY(0);
   }
-`;
+`
 
-export default SiteNav;
+export default SiteNav

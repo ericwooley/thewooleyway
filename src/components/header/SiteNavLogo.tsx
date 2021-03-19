@@ -1,9 +1,9 @@
-import { graphql, Link, StaticQuery } from 'gatsby';
-import React from 'react';
-import { css } from '@emotion/react';
-import { FixedObject } from 'gatsby-image';
+import { graphql, Link, StaticQuery } from 'gatsby'
+import React from 'react'
+import { css } from '@emotion/react'
+import { FixedObject } from 'gatsby-image'
 
-import config from '../../website-config';
+import config from '../../website-config'
 
 interface SiteNavLogoProps {
   logo?: {
@@ -36,7 +36,7 @@ export const SiteNavLogo = () => (
       </Link>
     )}
   />
-);
+)
 
 const SiteNavLogoStyles = css`
   position: relative;
@@ -61,5 +61,5 @@ const SiteNavLogoStyles = css`
     width: auto;
     height: 21px;
   }
-`;
+`
 
