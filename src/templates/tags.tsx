@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import { FluidObject } from 'gatsby-image'
-
+import * as _ from 'lodash'
 import { Footer } from '../components/Footer'
 import SiteNav from '../components/header/SiteNav'
 import { PostCard } from '../components/PostCard'
@@ -26,39 +26,37 @@ import { Helmet } from 'react-helmet'
 import config from '../website-config'
 
 interface TagTemplateProps {
-  location: Location;
+  location: Location
   pageContext: {
-    tag: string;
-  };
+    tag: string
+  }
   data: {
     allTagYaml: {
       edges: Array<{
         node: {
-          id: string;
-          description: string;
+          id: string
+          description: string
           image?: {
             childImageSharp: {
-              fluid: FluidObject;
-            };
-          };
-        };
-      }>;
-    };
+              fluid: FluidObject
+            }
+          }
+        }
+      }>
+    }
     allMarkdownRemark: {
-      totalCount: number;
+      totalCount: number
       edges: Array<{
-        node: PageContext;
-      }>;
-    };
-  };
+        node: PageContext
+      }>
+    }
+  }
 }
 
 const Tags = ({ pageContext, data, location }: TagTemplateProps) => {
   const tag = pageContext.tag ? pageContext.tag : ''
   const { edges, totalCount } = data.allMarkdownRemark
-  const tagData = data.allTagYaml.edges.find(
-    n => n.node.id.toLowerCase() === tag.toLowerCase(),
-  )
+  const tagData = data.allTagYaml.edges.find(n => n.node.id.toLowerCase() === tag.toLowerCase())
 
   return (
     <IndexLayout>
@@ -84,10 +82,7 @@ const Tags = ({ pageContext, data, location }: TagTemplateProps) => {
         )}
       </Helmet>
       <Wrapper>
-        <header
-          className="site-archive-header"
-          css={[SiteHeader, SiteArchiveHeader]}
-        >
+        <header className="site-archive-header" css={[SiteHeader, SiteArchiveHeader]}>
           <div css={[outer, SiteNavMain]}>
             <div css={inner}>
               <SiteNav isHome={false} />
@@ -99,7 +94,7 @@ const Tags = ({ pageContext, data, location }: TagTemplateProps) => {
             className="site-header-background"
           >
             <SiteHeaderContent css={inner} className="site-header-content">
-              <SiteTitle className="site-title">{tag}</SiteTitle>
+              <SiteTitle className="site-title">{_.startCase(tag)}</SiteTitle>
               <SiteDescription className="site-description">
                 {tagData?.node.description ? (
                   tagData.node.description

@@ -5,7 +5,6 @@ import * as _ from 'lodash'
 import { lighten, setLightness } from 'polished'
 import React from 'react'
 import { Helmet } from 'react-helmet'
-
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
@@ -22,83 +21,83 @@ import config from '../website-config'
 import { AuthorList } from '../components/AuthorList'
 
 export interface Author {
-  id: string;
-  bio: string;
+  id: string
+  bio: string
   avatar: {
     children: Array<{
-      fluid: FluidObject;
-    }>;
-  };
+      fluid: FluidObject
+    }>
+  }
 }
 
 interface PageTemplateProps {
-  location: Location;
+  location: Location
   data: {
     logo: {
       childImageSharp: {
-        fixed: any;
-      };
-    };
+        fixed: any
+      }
+    }
     markdownRemark: {
-      html: string;
-      htmlAst: any;
-      excerpt: string;
-      timeToRead: string;
+      html: string
+      htmlAst: any
+      excerpt: string
+      timeToRead: string
       frontmatter: {
-        title: string;
-        date: string;
-        userDate: string;
+        title: string
+        date: string
+        userDate: string
         image: {
           childImageSharp: {
-            fluid: any;
-          };
-        };
-        excerpt: string;
-        tags: string[];
-        author: Author[];
-      };
-    };
+            fluid: any
+          }
+        }
+        excerpt: string
+        tags: string[]
+        author: Author[]
+      }
+    }
     relatedPosts: {
-      totalCount: number;
+      totalCount: number
       edges: Array<{
         node: {
-          timeToRead: number;
+          timeToRead: number
           frontmatter: {
-            title: string;
-            date: string;
-          };
+            title: string
+            date: string
+          }
           fields: {
-            slug: string;
-          };
-        };
-      }>;
-    };
-  };
+            slug: string
+          }
+        }
+      }>
+    }
+  }
   pageContext: {
-    prev: PageContext;
-    next: PageContext;
-  };
+    prev: PageContext
+    next: PageContext
+  }
 }
 
 export interface PageContext {
-  excerpt: string;
-  timeToRead: number;
+  excerpt: string
+  timeToRead: number
   fields: {
-    slug: string;
-  };
+    slug: string
+  }
   frontmatter: {
     image: {
       childImageSharp: {
-        fluid: FluidObject;
-      };
-    };
-    excerpt: string;
-    title: string;
-    date: string;
-    draft?: boolean;
-    tags: string[];
-    author: Author[];
-  };
+        fluid: FluidObject
+      }
+    }
+    excerpt: string
+    title: string
+    date: string
+    draft?: boolean
+    tags: string[]
+    author: Author[]
+  }
 }
 
 const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
@@ -188,7 +187,7 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
                 <PostFullTags className="post-full-tags">
                   {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
                     <Link to={`/tags/${_.kebabCase(post.frontmatter.tags[0])}/`}>
-                      {post.frontmatter.tags[0]}
+                      {_.startCase(post.frontmatter.tags[0])}
                     </Link>
                   )}
                 </PostFullTags>
@@ -223,7 +222,7 @@ const PageTemplate = ({ data, pageContext, location }: PageTemplateProps) => {
               {post.frontmatter.image?.childImageSharp && (
                 <PostFullImage>
                   <Img
-                    style={{ height: '100%' }}
+                    style={{ height: '100%', borderRadius: '20px' }}
                     fluid={post.frontmatter.image.childImageSharp.fluid}
                     alt={post.frontmatter.title}
                   />
@@ -414,14 +413,14 @@ export const PostFullTitle = styled.h1`
 
 const PostFullImage = styled.figure`
   margin: 25px 0 50px;
-  height: 800px;
+  height: 240px;
   background: ${colors.lightgrey} center center;
   background-size: cover;
-  border-radius: 5px;
+  border-radius: 20px;
 
   @media (max-width: 1170px) {
     margin: 25px -6vw 50px;
-    border-radius: 0;
+    border-radius: 20px;
     img {
       max-width: 1170px;
     }

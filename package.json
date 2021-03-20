@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-casper",
-  "description": "Casper for gatsby",
+  "name": "the-wooley-way",
+  "description": "thewooleyway.com",
   "version": "0.0.0",
   "private": true,
-  "author": "Scott Cooper <scttcper@gmail.com>",
+  "author": "Eric Wooley <ericwooley@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",

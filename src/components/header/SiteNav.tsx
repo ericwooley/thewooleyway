@@ -14,13 +14,13 @@ import { SubscribeModal } from '../subscribe/SubscribeModal'
 import { SiteNavLogo } from './SiteNavLogo'
 
 interface SiteNavProps {
-  isHome?: boolean;
-  isPost?: boolean;
-  post?: any;
+  isHome?: boolean
+  isPost?: boolean
+  post?: any
 }
 
 interface SiteNavState {
-  showTitle: boolean;
+  showTitle: boolean
 }
 
 class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
@@ -97,7 +97,7 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                   <Link to="/about">About</Link>
                 </li>
                 <li role="menuitem">
-                  <Link to="/tags/getting-started/">Getting Started</Link>
+                  <Link to="/tags/community-portal/">Community Portal</Link>
                 </li>
               </ul>
               {isPost && (

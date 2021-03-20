@@ -5,7 +5,7 @@ module.exports = {
   siteMetadata: {
     title: 'The Wooley Way',
     description: 'The Wooley Way Community Site',
-    siteUrl: 'https://gatsby-casper.netlify.com', // full path to blog - no ending slash
+    siteUrl: 'https://thewooleyway.com', // full path to blog - no ending slash
   },
   mapping: {
     'MarkdownRemark.frontmatter.author': 'AuthorYaml',
@@ -54,7 +54,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://gatsby-casper.netlify.com',
+        siteUrl: 'https://thewooleyway.com',
       },
     },
     'gatsby-plugin-typescript',
