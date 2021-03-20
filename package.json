@@ -13,7 +13,7 @@
     "start": "npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "predeploy": "yarn build",
-    "deploy": "gatsby build && gh-pages -d public -b main"
+    "deploy": "gatsby build && gh-pages -d public -b pages"
   },
   "dependencies": {
     "@emotion/react": "11.1.5",
