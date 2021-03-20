@@ -8,18 +8,18 @@ import config from '../../website-config'
 interface SiteNavLogoProps {
   logo?: {
     childImageSharp: {
-      fixed: FixedObject;
-    };
-  };
+      fixed: FixedObject
+    }
+  }
 }
 
 export const SiteNavLogo = () => (
   <StaticQuery
     query={graphql`
       query HeadingQuery {
-        logo: file(relativePath: { eq: "img/ghost-logo.png" }) {
+        logo: file(relativePath: { eq: "img/logo-white.png" }) {
           childImageSharp {
-            fixed(quality: 100 width: 500) {
+            fixed(quality: 100, width: 500) {
               ...GatsbyImageSharpFixed
             }
           }
@@ -62,4 +62,3 @@ const SiteNavLogoStyles = css`
     height: 21px;
   }
 `
-

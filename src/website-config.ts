@@ -43,13 +43,12 @@ const config: WebsiteConfig = {
   coverImage: 'img/blog-cover.png',
   logo: 'img/logo-white.png',
   lang: 'en',
-  siteUrl: 'https://gatsby-casper.netlify.com',
-  facebook: 'https://www.facebook.com/ghost',
+  siteUrl: 'https://thewooleyway.com',
   twitter: 'https://twitter.com/ericwooley',
   showSubscribe: true,
   substackLink: 'https://thewooleyway.substack.com/',
   googleSiteVerification: 'GoogleCode',
-  footer: 'is based on Gatsby Casper',
+  // footer: 'is based on Gatsby Casper',
 }
 
 export default config
