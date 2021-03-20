@@ -39,7 +39,7 @@ export interface WebsiteConfig {
 
 const config: WebsiteConfig = {
   title: 'The Wooley Way',
-  description: 'The Wooley Way Community Resources',
+  description: 'The Wooley Way',
   coverImage: 'img/blog-cover.png',
   logo: 'img/logo-white.png',
   lang: 'en',
