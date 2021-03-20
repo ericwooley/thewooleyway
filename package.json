@@ -12,7 +12,7 @@
     "lint:fix": "eslint --fix --ext .js,.ts,.tsx .",
     "start": "npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "predeploy": "yarn build && cp CNAME dist/",
+    "predeploy": "yarn build && cp CNAME public/",
     "deploy": "gatsby build && gh-pages -d public -b pages"
   },
   "dependencies": {
